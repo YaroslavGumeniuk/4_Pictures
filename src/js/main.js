@@ -11,6 +11,7 @@ import acordion from "./modules/acordion";
 import burger from "./modules/burger";
 import scrolling from "./modules/scrolling";
 import drop from "./modules/drop";
+import myInfo from "./modules/myInfo";
 
 window.addEventListener("DOMContentLoaded", () => {
     "use strict";
@@ -39,4 +40,5 @@ window.addEventListener("DOMContentLoaded", () => {
     burger('.burger-menu', '.burger');
     scrolling('.pageup');
     drop();
+    myInfo();
 });

@@ -5559,6 +5559,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
 /* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
 /* harmony import */ var _modules_drop__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/drop */ "./src/js/modules/drop.js");
+/* harmony import */ var _modules_myInfo__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/myInfo */ "./src/js/modules/myInfo.js");
+
 
 
 
@@ -5599,6 +5601,7 @@ window.addEventListener("DOMContentLoaded", function () {
   Object(_modules_burger__WEBPACK_IMPORTED_MODULE_10__["default"])('.burger-menu', '.burger');
   Object(_modules_scrolling__WEBPACK_IMPORTED_MODULE_11__["default"])('.pageup');
   Object(_modules_drop__WEBPACK_IMPORTED_MODULE_12__["default"])();
+  Object(_modules_myInfo__WEBPACK_IMPORTED_MODULE_13__["default"])();
 });
 
 /***/ }),
@@ -6244,6 +6247,65 @@ var modals = function modals() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
+
+/***/ }),
+
+/***/ "./src/js/modules/myInfo.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/myInfo.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var myInfo = function myInfo() {
+  var infoBtn = document.createElement('div');
+  var infoBlock = document.createElement('div');
+  var close = document.createElement('div');
+  infoBtn.innerHTML = "Что реализовано <br> в этом проекте?";
+  infoBlock.innerHTML = "В этом проекте на 'чистом' JS реализовано: <br><br> 1. Модальные окна (кнопки 'Заказать...'). <br> 2. Блок с подарком (справа сверху) и отслеживание того, что пользователь долистал страницу до конца (появляется модальное окно). <br> 3. Вертикальный и горизонтальный слайдер, автопереключение и изменение направления движения элементов. <br> 4. Формы и отправка данных на сервер. <br> 5. Маска ввода номера телефона и запрет ввода латиницы. <br> 6. Показ дополнительных стилей портретов (секция 'Популярные стили'). <br> 7. Получение данных с сервера и подгрузка дополнительных стилей портретов (секция 'Популярные стили').  <br> 8. Калькулятор расчета стоимости с отправкой данных на сервер (секция 'Рассчитайте стоимость'). <br> 9. Фильтрация картин (секция 'Для кого делаем'). <br> 10. Изменение изображения при наведении. (секция 'Можем изготовить'). <br> 11. Аккордеон (секция 'Ответим на любой...'). <br> 12. Плавная равномерная прокрутка вверх. <br> 13. drag&drop загрузка изображений (перетаскивание из папки на поле 'Загрузить файл').";
+  close.innerHTML = "&times";
+  infoBtn.style.cssText = "\n                // display: none;\n                position: fixed;\n                background: rgba(255, 245, 255, 0.7);\n                transition: ease-in 0.7s all;\n                width: 300px;\n                height: 100px;\n                border: 3px solid red;\n                left: 100px;\n                top: 50px;\n                border-radius: 20px;\n                cursor: pointer;\n                font-size: 30px;\n                color: #2546bc;\n                text-align: center;\n                line-height: 46px;\n            ";
+  infoBlock.style.cssText = "\n                display: none;\n                opacity: 0;\n                position: fixed;\n                padding: 15px;\n                font-size: 18px;\n                background: rgba(255, 245, 255, 0.7);\n                transition: ease-in 0.7s all;\n                width: 480px;\n                min-height: 300px;\n                border: 2px solid #2546bc;\n                left: 100px;\n                top: 50px;\n                border-radius: 20px;\n            ";
+  close.style.cssText = "\n                position: fixed;\n                left: 585px;\n                top: 50px;\n                width: 50px;\n                height: 50px;\n                font-size: 60px;\n                color: red;\n                line-height: 42px;\n                text-align: center;\n                cursor: pointer;\n            ";
+  document.body.append(infoBtn);
+  document.body.append(infoBlock);
+  infoBlock.append(close);
+
+  function showBlock() {
+    infoBtn.style.display = 'none';
+    infoBtn.style.opacity = '0';
+    infoBlock.style.display = 'block';
+    setTimeout(function () {
+      infoBlock.style.opacity = '1';
+    }, 20);
+  }
+
+  function hideBlock() {
+    infoBtn.style.display = 'block';
+    setTimeout(function () {
+      infoBtn.style.opacity = '1';
+    }, 20);
+    infoBlock.style.opacity = '0';
+    setTimeout(function () {
+      infoBlock.style.display = 'none';
+    }, 500);
+  }
+
+  infoBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    showBlock();
+  });
+  close.addEventListener('click', function () {
+    hideBlock();
+  });
+  document.addEventListener('click', function (e) {
+    hideBlock();
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (myInfo);
 
 /***/ }),
 
